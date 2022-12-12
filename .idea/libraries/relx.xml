@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="relx" type="mix">
+    <CLASSES />
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/deps/relx/src" />
+      <root url="file://$PROJECT_DIR$/deps/relx/priv" />
+    </SOURCES>
+  </library>
+</component>
