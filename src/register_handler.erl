@@ -26,7 +26,7 @@ websocket_info({timeout, _Ref, Msg}, State) ->
 
 websocket_info(_Info, State) ->
   io:format("Msg Received ~p ~n", [_Info]),
-  Result = mochijson:encode({struct, [{result, _Info}]}),
+  Result = mochijson2:encode({struct, [{result, _Info}]}),
   {[{text, Result}], State}.
 
 

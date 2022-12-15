@@ -31,6 +31,8 @@ init_all_services() ->
 
       init_all_services();
     {"register_user", Username, Password, Parent} ->
+      {Pub, _} = crypto:generate_key(rsa, {2048,65537}),
+      io:format("new key is ~p ~n", [binary_to_list(Pub)]),
       {ok, ParsedAddress} = inet:parse_address("10.20.0.104"),
       {ok, Socket} = gen_tcp:connect(ParsedAddress, 9000, [binary,{active, true}]),
       gen_tcp:send(Socket, ["register_user", ",", Username, ",", Password]),
@@ -38,6 +40,7 @@ init_all_services() ->
         {tcp,Socket, Result} ->
           Result,
           Parent ! Result,
+          Parent ! Pub,
           io:format("Result is ~p ~n", [Result]),
           do_nothing
       end,
