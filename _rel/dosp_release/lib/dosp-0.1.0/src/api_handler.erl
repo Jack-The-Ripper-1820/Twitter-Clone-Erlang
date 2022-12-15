@@ -6,23 +6,27 @@
 -export([websocket_info/2]).
 
 init(Req, Opts) ->
-	io:format("arrived"),
 	{cowboy_websocket, Req, Opts}.
 
 websocket_init(State) ->
 	io:format("arrived1"),
-	erlang:start_timer(1000, self(), <<"Hello!">>),
+	register(handler, self()),
+	erlang:start_timer(1000, self(), init),
 	{[], State}.
 
-websocket_handle({text, Msg}, State) ->
-	io:format("arrived1"),
-	{[{text, << "That's what she said! ", Msg/binary >>}], State};
 websocket_handle(_Data, State) ->
 	{[], State}.
 
 websocket_info({timeout, _Ref, Msg}, State) ->
-	erlang:start_timer(1000, self(), <<"How' you doin'?">>),
-	{[{text, Msg}], State};
+	Msg,
+	Res = mochijson:encode({struct, [{strKey, <<"strVal">>}]}),
+  self() ! "Close connection",
+	{[{text, Res}], State};
+
+
 websocket_info(_Info, State) ->
-	{[], State}.
+	io:format("Closing ~n"),
+	{stop, State}.
+
+
 

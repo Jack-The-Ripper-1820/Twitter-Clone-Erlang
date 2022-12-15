@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="mochiweb" type="mix">
+    <CLASSES />
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/deps/mochiweb/src" />
+    </SOURCES>
+  </library>
+</component>
