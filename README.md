@@ -1,6 +1,8 @@
 
 # **Twitter Engine Part 2  - COP 5615**
 
+Youtube video link - https://www.youtube.com/watch?v=G37cUMv1F-k
+
 ## **Group members -**
 
 1 - Mayur Reddy Junnuthula (UFID - 36921238)
@@ -28,15 +30,23 @@ You need to measure various aspects of your simulator and report performance
 More detail in the lecture as the project progresses.
 
 
-## **Project 4 Extensions (Part 2) ** #
+## **Project 4 Extensions (Part 2)** #
 This is a continuation of Project 3 where the actor model calls are now replaced with WebSocket API calls. The added functionality is listed below:
 
 1.  Designed a JSON based API that represents all messages and their replies (including errors)
 2.  Re-written parts of the engine using WebSharper to implement the WebSocket interface
 3.  Re-written parts of the client to use WebSockets.
 
+## **BONUS PART** ##
 
-### **Steps to Run the project**
+1. <mark> A user after registration provides a public key. </mark> 
+
+2. <mark> When the user re-connects via the websocket to request for any service, the engine sends a randomized mathematical challenge to the user, for example, 2 + 5, this is a 256 bit challenge and if the user fails to answer correctly, the websocket connection is terminated and the user has to retry. When the client sends a reply for the challenge, it is digital signed with the time included. The engine sends an acknowledgment if the answer is right or an error if it is not. The challenge is randomized evey time it is called and hence it is not cached. </mark>
+
+3. <mark> The user establishes a secret key with the engine using HMAC which signs every message sent in the JSON Format. </mark>
+
+
+## **Steps to Run the project** ##
 
 - Our choice of IDE for the project is IntelliJ IDEA. Build the project and run it using the erlang console run configuration in IntelliJ IDEA with just default (zero) arguments and default settings.
 - Use the command "make run" in the console to the run the application.
@@ -80,16 +90,6 @@ and so on. The parameter "maximum no.of tweets" is taken as an input from the us
 Depending upon the parameter "percentage of users to disconnect", the users are periodically disconnected. This is taken as an input from the user.
 **Please note that, the no.of users that will be disconnected will always be less than "percentage of users to disconnect".**
 
-## **BONUS PART** ##
-1. A user after registration provides a public key. 
-
-2. When the user re-connects via the websocket to request for any service, the engine sends a randomized mathematical challenge to the user, for exmaple, 2 + 5, this is a 256
-bit challenge and if the user fails to answer correctly, the websocket connection is terminated and the user has to retry.
-When the client sends a reply for the challenge, it is digital signed with the time included. The engine sends an acknowledgment if the answer is right or an error if it is not.
-The challenge is randomized evey time it is called and hence it is not cached. 
-
-3. The user establishes a secret key with the engine using HMAC which signs every message sent in the JSON Format.
-
 ## **Performance Graphs -**
 
 
@@ -116,5 +116,16 @@ system.  We were able to test for a maximum of 2000 users, but we are confident 
 
 **Some Samples of Request/ Response -**
 
+![](Screenshot_2022-12-15_at_9.27.43_PM.png)
 
+![](Screenshot_2022-12-15_at_9.30.51_PM.png)
 
+![](Screenshot_2022-12-15_at_9.32.27_PM.png)
+
+![](Screenshot_2022-12-15_at_9.34.05_PM.png)
+
+![](Screenshot_2022-12-15_at_9.37.00_PM.png)
+
+![](Screenshot_2022-12-15_at_9.40.37_PM.png)
+
+![](Screenshot_2022-12-15_at_9.42.03_PM.png)
