@@ -99,6 +99,8 @@ start(_Type, _Args) ->
 	),
 
 
+	%Start Bonus mode
+	bonus:start_link(),
 	% Start my Server
 	server:start_link(),
 	%Start my Client
