@@ -30,11 +30,11 @@ You need to measure various aspects of your simulator and report performance
 More detail in the lecture as the project progresses.
 
 
-## **Project 4 Extensions (Part 2)** #
+## **Project 4 Extensions (Part 2)** ##
 This is a continuation of Project 3 where the actor model calls are now replaced with WebSocket API calls. The added functionality is listed below:
 
 1.  Designed a JSON based API that represents all messages and their replies (including errors)
-2.  Re-written parts of the engine using WebSharper to implement the WebSocket interface
+2.  Re-written parts of the engine and implemented the WebSocket interface
 3.  Re-written parts of the client to use WebSockets.
 
 ## **BONUS PART** ##
