@@ -26,8 +26,6 @@ Simulate periods of live connection and disconnection for users
 Simulate a Zipf distribution on the number of subscribers. For accounts with a lot of subscribers, increase the number of tweets. Make some of these messages re-tweets
 Other considerations:
 The client part (send/receive tweets) and the engine (distribute tweets) have to be in separate processes. Preferably, you use multiple independent client processes that simulate thousands of clients and a single-engine process
-You need to measure various aspects of your simulator and report performance
-More detail in the lecture as the project progresses.
 
 
 ## **Project 4 Extensions (Part 2)** ##
